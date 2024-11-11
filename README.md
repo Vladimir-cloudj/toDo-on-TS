@@ -1,2 +1,3 @@
 Это простой проект приложения ToDo на Typescript
-this is a simple project "ToDo" on Typescript
+
+This is a simple project "ToDo" on Typescript
