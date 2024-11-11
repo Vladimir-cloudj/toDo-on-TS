@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="main">
+        <div class="container">
+            <div class="tasks-form form">
+                <div class="high-tasks">
+                    <!-- HIGH TASKS -->
+                    <h2 class="high-title title">HIGH</h2>
+                    <form action="#" class="high-tasks__form form-tasks" id="high-tasks__form" method="get">
+                        <input type="text" class="form-tasks__add--high addtask--high" id="form-tasks__add--high" placeholder="Добавить важных дел">
+                        <button class="form-tasks__btn--high add-task-button btn" type="submit" data-priority="high">+</button>
+                    </form>
+                    <div class="high-tasks__list list" id="high-tasks__list">
+                        <!-- <div class="list-item task">
+                            <input type="checkbox" class="task-checkbox" id="taskcheckbox1" data-action="done">
+                            <label for="taskcheckbox1" class="task-text">Вот вам и супер интересная тема. 
+                                Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.</label>
+                            <button class="task-delete__btn" id="delete-btn">+</button>
+                        </div> -->
+                        <!-- <div class="list-item task">
+                            <input type="checkbox" class="task-checkbox" id="taskcheckbox2" data-action="done">
+                            <label for="taskcheckbox2" class="task-text">Сверстать этот TODO list</label>
+                            <button class="task-delete__btn" id="delete-btn">+</button>
+                        </div> -->
+                        <!-- <div class="list-item task  task-title--done">
+                            <input type="checkbox" class="task-checkbox" id="taskcheckbox2" data-action="done" checked>
+                            <label for="taskcheckbox2" class="task-text">Начать делать задачу</label>
+                            <button class="task-delete__btn" id="delete-btn">+</button>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="low-tasks">
+                    <!-- LOW TASKS -->
+                    <h2 class="low-title title">LOW</h2> 
+                    <form action="#" class="low-tasks__form form-tasks" id="low-tasks__form" method="get">
+                        <input type="text" class="form-tasks__add--low addtask--low" id="form-tasks__add--low" placeholder="Добавить дел">
+                        <button class="form-tasks__btn--low add-task-button btn" type="submit" data-priority="high">+</button>
+                    </form>
+                    <div class="low-tasks__list list" id="low-tasks__list">
+                        <!-- <div class="list-item task">
+                            <input type="checkbox" class="task-checkbox" id="taskcheckbox1" data-action="done">
+                            <label for="taskcheckbox1" class="task-text">Посмотреть ютубчик</label>
+                            <button class="task-delete__btn" id="delete-btn">+</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script defer type="module" src="./dist/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+body {
+    font-family: 'Roboto', serif;
+    font-size: 18px;
+}
+.container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	/* background: #e5e5e5; */
+}
+.form {
+	background: #fff;
+	width: 476px;
+	height: 688px;
+}
+.high-tasks__form,
+.low-tasks__form {
+	position: relative;
+}
+
+.title {
+    text-align: center;
+    font-weight: normal;
+}
+.form-tasks__add--high,
+.form-tasks__add--low {
+	margin: 0 0 0 8px;
+	padding: 8px;
+	width: 460px;
+	height: 45px;
+	border: 1px solid #989898;
+	border-radius: 6px;
+}
+.form-tasks__btn--high,
+.form-tasks__btn--low {
+	position: absolute;
+	top: 0px;
+	right: 10px;
+	font-size: 35px;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+}
+.task {
+	position: relative;
+	display: flex;
+	border: 1px solid #989898;
+	margin: 8px 0 0 8px;
+	padding: 12px 42px;
+	width: 460px;
+	border: 1px solid #989898;
+	border-radius: 6px;
+}
+.task-checkbox {
+	position: absolute;
+	top: 10px;
+	right: 422px;
+	width: 21px;
+	height: 21px;
+}
+.task-delete__btn {
+	position: absolute;
+	top: 0px;
+	right: -2px;
+	cursor: pointer;
+	background-image: none;
+	background: transparent;
+	font-size: 40px;
+	rotate: -45deg;
+	border: none
+}
+.task-title--done {
+	/* text-decoration: line-through; */
+
+	color: #CDCDCD;
+}
+.task-title--done>.task-checkbox {
+
+}
+
+.list-item {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	gap: 5px;
+	margin: 5px;
+}
+.item-name {
+	width: 100%;
+}
