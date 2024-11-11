@@ -22,10 +22,10 @@ This application allows users to add tasks categorized as high or low priority. 
 ## UI Elements
 The application uses the following UI elements:
 
-High Task Form: A form for adding high priority tasks.
-Low Task Form: A form for adding low priority tasks.
-High Tasks List: A list that displays all high priority tasks.
-Low Tasks List: A list that displays all low priority tasks.
+- High Task Form: A form for adding high priority tasks.
+- Low Task Form: A form for adding low priority tasks.
+- High Tasks List: A list that displays all high priority tasks.
+- Low Tasks List: A list that displays all low priority tasks.
 
 ## Size Limits
 The application enforces the following size limits for task messages:
