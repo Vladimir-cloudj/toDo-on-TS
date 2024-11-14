@@ -1,4 +1,4 @@
-import { Task, Data } from './types.js';
+import { Task, Data, TaskStatus } from './types.js';
 import { UIElements, SIZE_LIMITS } from './uiElements.js';
 
 const taskList: Data = {
@@ -31,15 +31,15 @@ export async function loadTasks(): Promise<Data> {
 
 function isNameValid(name: string) {
     if (name.length < SIZE_LIMITS.minSizeMessage || name.length > SIZE_LIMITS.maxSizeMessage) {
-        throw new Error('Имя должно быть от 3 до 30 символов');
+        throw new Error('Имя должно быть от 3 до 90 символов');
     }
 }
 
-export function addTask(name: string, priority: string, status: string = "To Do"): Task {
+export function addTask(name: string, priority: string, status: TaskStatus = TaskStatus.Todo): Task {
     // проверяем валидно ли имя
     isNameValid(name)
     // if (name.length < SIZE_LIMITS.minSizeMessage || name.length > SIZE_LIMITS.maxSizeMessage) {
-    //     throw new Error('Имя должно быть от 3 до 30 символов');// выбрасываем исключение
+    //     throw new Error('Имя должно быть от 3 до 90 символов');// выбрасываем исключение
     // }
     // создаем новую задачу
     const newTask: Task = {
@@ -79,10 +79,12 @@ export function renderTasks(): void {
         //создаем чекбокс
         const doneCheckbox = document.createElement('input');
         doneCheckbox.type = 'checkbox';
-        doneCheckbox.checked = task.status === 'Done';//устанавливаем состояние чекбокса
+        doneCheckbox.checked = task.status === TaskStatus.Done;//устанавливаем состояние чекбокса
         doneCheckbox.addEventListener('change', () => {
-            task.status = doneCheckbox.checked ? 'Done' : 'To Do';// меняем статус задачи
-            task.status === 'Done' ? taskNameInput.style.textDecoration = 'line-through' : taskNameInput.style.textDecoration = 'none'
+            task.status = doneCheckbox.checked ? TaskStatus.Done : TaskStatus.Todo;// меняем статус задачи
+            console.log(task.status === TaskStatus.Done);
+            taskNameInput.style.textDecoration = task.status === TaskStatus.Done ? 'line-through' : 'none';
+            // task.status === TaskStatus.Done ? taskNameInput.style.textDecoration = 'line-through' : taskNameInput.style.textDecoration = 'none'
             // if (task.status === 'Done') {
             //     taskNameInput.style.textDecoration = 'line-through';//Перечеркиваем текст задачи
             // } else {

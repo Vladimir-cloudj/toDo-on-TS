@@ -11,5 +11,5 @@ export const UIElements: UIElementsI = {
 
 export const SIZE_LIMITS = {
     minSizeMessage: 3,
-    maxSizeMessage: 30,
+    maxSizeMessage: 90,
 };

@@ -2,7 +2,7 @@ export interface Task {
     id: string;
     name: string;
     priority: string;
-    status: string;
+    status: TaskStatus;//используем enum для статуса задачи
 }
 
 export interface Data {
@@ -16,4 +16,11 @@ export interface UIElementsI {
     TASK_INPUT_LOW: HTMLInputElement | null;
     HIGH_TASKS_LIST: HTMLUListElement | null;
     LOW_TASKS_LIST: HTMLUListElement | null;
+}
+
+// реализация enum для TaskStatus
+export enum TaskStatus {
+    Todo = 'To Do',
+    Done= 'DONE',
+
 }
