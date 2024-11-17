@@ -17,7 +17,7 @@
 
 # (EN) ToDo
 ## Usage
-This application allows users to add tasks categorized as high or low priority. Users can input tasks through forms and view them in separate lists.
+Simple task management application that allows users to add and manage tasks with high and low priority. This application enables users to add tasks classified as high-priority or low-priority. Users can enter tasks through forms and view them in separate lists..
 
 ## UI Elements
 The application uses the following UI elements:
