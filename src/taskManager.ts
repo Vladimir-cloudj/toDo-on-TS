@@ -1,4 +1,4 @@
-import { Task, Data, TaskStatus } from './types.js';
+import { Task, Data, TaskStatus, TaskPriority } from './types.js';
 import { UIElements, SIZE_LIMITS } from './uiElements.js';
 
 const taskList: Data = {
@@ -35,7 +35,7 @@ function isNameValid(name: string) {
     }
 }
 
-export function addTask(name: string, priority: string, status: TaskStatus = TaskStatus.Todo): Task {
+export function addTask(name: string, priority: TaskPriority, status: TaskStatus = TaskStatus.Todo): Task {
     // проверяем валидно ли имя
     isNameValid(name)
     // if (name.length < SIZE_LIMITS.minSizeMessage || name.length > SIZE_LIMITS.maxSizeMessage) {
@@ -82,7 +82,6 @@ export function renderTasks(): void {
         doneCheckbox.checked = task.status === TaskStatus.Done;//устанавливаем состояние чекбокса
         doneCheckbox.addEventListener('change', () => {
             task.status = doneCheckbox.checked ? TaskStatus.Done : TaskStatus.Todo;// меняем статус задачи
-            console.log(task.status === TaskStatus.Done);
             taskNameInput.style.textDecoration = task.status === TaskStatus.Done ? 'line-through' : 'none';
             // task.status === TaskStatus.Done ? taskNameInput.style.textDecoration = 'line-through' : taskNameInput.style.textDecoration = 'none'
             // if (task.status === 'Done') {
@@ -145,9 +144,9 @@ export function renderTasks(): void {
         taskDiv.appendChild(editButton);//добавляем кнопку редактирования
         taskDiv.appendChild(deleteButton);//добавляем кнопку удаления
         //добавляем контейнер задачи в соответствующий список по ее приоритету        
-        if (task.priority === 'high') {
+        if (task.priority === TaskPriority.High) {
             UIElements.HIGH_TASKS_LIST?.appendChild(taskDiv);//добавляем контейнер задачи в список высоких задач
-        } else if (task.priority === 'low') {
+        } else if (task.priority === TaskPriority.Low) {
             UIElements.LOW_TASKS_LIST?.appendChild(taskDiv);//добавляем контейнер задачи в список низких задач
         }
     });
@@ -161,7 +160,9 @@ export function setupAddTaskButtons(): void {
             const input = button.previousElementSibling as HTMLInputElement; // Получаем предшествующее поле ввода
             const taskName = input.value.trim(); // получаем значение ввода
             if (taskName && priority!== null) {
-                addTask(taskName, priority);// добавляем задачу
+                // преобразуем строку в TaskPriority enum
+                const taskPriority = priority === TaskPriority.High ? TaskPriority.High : TaskPriority.Low;
+                addTask(taskName, taskPriority);// добавляем задачу
                 input.value = '';// очищаем поле ввода
                 renderTasks();// рендерим задачи
             }

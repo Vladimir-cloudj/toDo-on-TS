@@ -22,5 +22,10 @@ export interface UIElementsI {
 export enum TaskStatus {
     Todo = 'To Do',
     Done= 'DONE',
+}
 
+// реализация enum для Priority
+export enum TaskPriority {
+    High = 'high',
+    Low = 'low',
 }
